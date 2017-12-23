@@ -63,7 +63,10 @@ static void *ntyWorkerThread(void *ptr) {
 			pthread_cond_wait(&worker->workqueue->jobs_cond, &worker->workqueue->jobs_mtx);
 		}
 
-		if (worker->terminate) break;
+		if (worker->terminate) {
+			pthread_mutex_unlock(&worker->pool->jobs_mtx);
+			break;
+		}
 		
 		nJob *job = worker->workqueue->waiting_jobs;
 		if (job != NULL) {
