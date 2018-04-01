@@ -64,7 +64,7 @@ static void *ntyWorkerThread(void *ptr) {
 		}
 
 		if (worker->terminate) {
-			pthread_mutex_unlock(&worker->pool->jobs_mtx);
+			pthread_mutex_unlock(&worker->workqueue->jobs_mtx);
 			break;
 		}
 		
