@@ -288,7 +288,7 @@ nThreadPool *ntyThreadPoolCreate(int min_threads, int max_threads, int linger, p
 
 		thread_pool->back->forw = pool;
 		pool->forw = thread_pool;
-		pool->back = pool->back;
+		pool->back = thread_pool->back;
 		thread_pool->back = pool;
 		
 	}
