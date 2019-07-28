@@ -180,7 +180,7 @@ static void* ntyWorkerThread(void *arg) {
 			pool->head = job->next;
 
 			if (job == pool->tail) {
-				pool->tail == NULL;
+				pool->tail = NULL;
 			}
 			active.active_next = pool->active;
 			pool->active = &active;
