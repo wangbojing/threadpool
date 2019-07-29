@@ -329,6 +329,8 @@ int ntyThreadPoolQueue(nThreadPool *pool, JOB_CALLBACK func, void *arg) {
 	}
 
 	pthread_mutex_unlock(&pool->mtx);
+	
+	return 0;
 
 }
 
